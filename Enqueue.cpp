@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+const int maxSize = 5;
+int myQueue[maxSize] = {0};
+int front = -1, rear = -1;
+
+bool isEmpty() {
+    return (front == -1 && rear == -1);
+}
+
+bool isFull() {
+    return (rear == (maxSize -1));
+}
+
+void enQueue(int x) {
+    if (isFull()) {
+        cout << "The Queue is Full" << endl;
+    }
+    else if (isEmpty()) {
+        front = 0;
+        rear = 0;
+        myQueue[rear] = x;
+        cout << "Element inserted" << endl;
+    }
+    else {
+        rear++;
+        myQueue[rear] = x;
+        cout << "Element inserted" << endl;
+    }
+}
+
+int main() {
+    cout << "Enqueueing elements...." << endl;
+    enQueue(10);
+    enQueue(20);
+    enQueue(30);
+
+    cout << "Elements euqueued" << endl;
+    cout << "Front Element: " << myQueue[front] << endl;
+    cout << "Rear Element: " << myQueue[rear] << endl;
+
+    return 0;
+}
